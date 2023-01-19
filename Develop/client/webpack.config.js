@@ -28,6 +28,22 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './index.html',
         title: "Webpack Plugin"
+      }),
+      new WebpackPwaManifest({
+        name: 'PWA Text Ed',
+        short_name: 'textEd',
+        description: 'A text editor designed to run in the browser.',
+        fingerprints: false,
+        inject: true,
+        start_url: '/',
+        publicPath: '/',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons')
+          }
+        ]
       })
     ],
 
@@ -36,7 +52,11 @@ module.exports = () => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader']
-        }
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
   };
