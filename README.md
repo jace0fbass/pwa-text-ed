@@ -4,7 +4,7 @@
 
 
 ## Description
-
+In this challenge I have finished provided starter code to build a text editor in the browser. 
 
 ## Your Task
 
