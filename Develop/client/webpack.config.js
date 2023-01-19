@@ -44,9 +44,12 @@ module.exports = () => {
             destination: path.join('assets', 'icons')
           }
         ]
+      }),
+      new InjectManifest({
+        swSrc:'./src-sw.js',
+        swDest: 'src-sw.js'
       })
     ],
-
     module: {
       rules: [
         {
@@ -57,6 +60,18 @@ module.exports = () => {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
         },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', { targets: 'defaults' }]
+              ]
+            }
+          }
+        }
       ],
     },
   };
