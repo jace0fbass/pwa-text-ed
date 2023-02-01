@@ -1,3 +1,4 @@
+node_modules
 Develop/node_modules/.package-lock.json
 Develop/node_modules/.bin/acorn
 Develop/node_modules/.bin/acorn.cmd
