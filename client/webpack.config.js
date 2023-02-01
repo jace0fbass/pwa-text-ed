@@ -27,13 +27,13 @@ module.exports = () => {
         swDest: 'src-sw.js'
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'JATE',
         short_name: 'JATE',
         description: 'Just another text editor.',
-        fingerprints: false,
-        inject: true,
         start_url: '/',
-        publicPath: '/',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
